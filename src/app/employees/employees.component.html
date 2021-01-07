@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="mb-4">Employees</h2>
+  <table class="table table-hover table-bordered table-sortable">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Avatar</th>
+      <!-- TODO: Add a column for an avatar -->
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.first_name}} {{employee.last_name}}</td>
+        <td>{{employee.email}}</td>
+        <td><img src="{{employee.avatar}}" alt=""></td>
+        <td><button (click)="deleteEmployee(employee)" type="button" class="btn btn-danger">Delete</button></td>
+      </tr>
+  
+    <tr class="input-row" [formGroup]="form">
+      <td><input formControlName="id" type="text" placeholder="ID" class="form-control"></td>
+      <td><input formControlName="name" type="text" placeholder="Name" class="form-control"></td>
+      <td><input formControlName="email" type="text" placeholder="Email" class="form-control"></td>
+      <td><input formControlName="avatar" type="text" placeholder="Avatar URL" class="form-control"></td>
+      <td><button [disabled]="form.invalid" (click)="addEmployee()" type="submit" class="btn btn-success" style="width: 70px" >Add</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

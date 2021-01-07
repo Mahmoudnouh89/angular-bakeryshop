@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="mb-4">Products</h2>
+  <table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price (€)</th>
+      <th scope="col">Quantity (pcs)</th>
+      <th scope="col">Store</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td [ngStyle]="{'color':product.quantity < 3 ? 'red' : 'black' }">{{product.quantity}}</td> <!-- TODO: Display the quantity in red if it is lower than 3 -->
+      <td>{{product.store}}</td>
+    </tr>
+
+    <tr class="input-row" [formGroup]="form">
+      <td><input formControlName="name" type="text" placeholder="Product" class="form-control"></td>
+      <td><input formControlName="price" type="text" placeholder="Price" class="form-control"></td>
+      <td><input formControlName="quantity" type="text" placeholder="Quantity" class="form-control"></td>
+      <td><input formControlName="store" type="text" placeholder="Store" class="form-control"></td>
+      <td><button type="submit" class="btn btn-success" style="width: 70px" (click)="addProduct()">Add</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

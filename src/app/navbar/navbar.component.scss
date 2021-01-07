@@ -1,0 +1,21 @@
+nav {
+  font-family: 'Times new roman', serif;
+  background-color: #2f9c37;
+
+  .nav-item {
+    font-size: 18px;
+  }
+
+  a {
+    color: white !important;
+
+    &:hover {
+      color: #343a40 !important;
+    }
+
+    .navbar-brand {
+      font-size: 26px;
+      vertical-align: middle;
+    }
+  }
+}
